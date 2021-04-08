@@ -24,5 +24,7 @@
 	https://raw.githubusercontent.com/geckoprojects-org/org.gecko.bndincludes/main/osgiR7.bnd,\
 	https://raw.githubusercontent.com/geckoprojects-org/org.gecko.bndincludes/main/osgiR8.bnd,\
 	https://raw.githubusercontent.com/geckoprojects-org/org.gecko.bndincludes/main/slf4j.bnd,\
-	https://raw.githubusercontent.com/geckoprojects-org/org.gecko.bndincludes/main/osgitest_junit5.bnd
+	https://raw.githubusercontent.com/geckoprojects-org/org.gecko.bndincludes/main/osgitest_junit5.bnd,\
+	https://gitlab.com/gecko.io/geckoEMF/-/raw/develop/cnf/geckoEMF/geckoEMF.bnd,\
+	https://gitlab.com/gecko.io/geckoEMFUtil/-/raw/develop/cnf/geckoEMFUtil/geckoEMFUtil.bnd
 	
