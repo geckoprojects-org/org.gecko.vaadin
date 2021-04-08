@@ -3,9 +3,11 @@ plugins {
   id 'jacoco'
   id 'java'
 }
+
 repositories {
     mavenCentral()
 }
+
 sonarqube {
   properties {
     property "sonar.projectName", "org.gecko.vaadin"
@@ -20,9 +22,33 @@ tasks.named('wrapper') {
   jarFile = rootProject.file('.gradle-wrapper/gradle-wrapper.jar')
 }
 
+tasks.register('itest'){
+  subprojects.each { sp ->
+    sp.tasks.each { t -> 
+      if(t.name ==~ "resolve\\.test(.*)?"){
+        dependsOn t
+      }
+    }
+  }
+  subprojects.each { sp ->
+    sp.tasks.each { t ->
+      if(t.name == "testOSGi"){
+        t.enabled = false
+        t.dependsOn = []
+      }
+    }
+  }
+  subprojects.each { sp ->
+    sp.tasks.each { t -> 
+      if(t.name ==~ "testrun\\.test(.*)?"){
+        dependsOn t
+      }
+    }
+  }
+}
 
 task codeCoverageReport(type: JacocoReport) {
-
+    dependsOn itest
     // Gather execution data from all subprojects
     executionData fileTree(project.rootDir.absolutePath).include("**/**/jacoco.exec")
 
@@ -41,4 +67,3 @@ task codeCoverageReport(type: JacocoReport) {
 tasks.named("sonarqube") {
     dependsOn(codeCoverageReport)
 }
-
