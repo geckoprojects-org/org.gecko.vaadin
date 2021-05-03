@@ -1,0 +1,6 @@
+-plugin.project: \
+	aQute.bnd.repository.maven.provider.MavenBndRepository; \
+		releaseUrl=https://repo.maven.apache.org/maven2/; \
+		snapshotUrl=http://tools.vaadin.com/nexus/content/groups/vaadin-prereleases;\
+		index=${.}/vaadin.maven; \
+		name="Vaadin Maven Central"
